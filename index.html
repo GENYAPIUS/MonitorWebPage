@@ -32,12 +32,15 @@
     html,
     body,
     .container-fluid {
+        padding: 0 0.01em 0 0.01em;
         height: 100%;
         width: 100%;
+        overflow-x: hidden;
     }
 
-
-
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
 </style>
 
 <body>
@@ -52,16 +55,20 @@
         </div>
         <div class="row no-gutters h-100 w-100">
             <div class="col-12 col-md-6 monitor" id="divMonitor0">
-                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100" id="monitor0"></iframe>
+                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100"
+                    id="monitor0"></iframe>
             </div>
             <div class="col-12 col-md-6 monitor" id="divMonitor1">
-                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100" id="monitor1"></iframe>
+                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100"
+                    id="monitor1"></iframe>
             </div>
             <div class="col-12 col-md-6 monitor" id="divMonitor2">
-                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100" id="monitor2"></iframe>
+                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100"
+                    id="monitor2"></iframe>
             </div>
             <div class="col-12 col-md-6 monitor" id="divMonitor3">
-                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100" id="monitor3"></iframe>
+                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100"
+                    id="monitor3"></iframe>
             </div>
         </div>
     </div>
@@ -90,7 +97,6 @@
         if (monitor) {
             monitors.push(monitor);
         }
-
         divMonitor = $(`#divMonitor${i}`)
         if (divMonitor) {
             divMonitors.push(divMonitor);
@@ -103,26 +109,21 @@
             if (url[i] != undefined) {
                 if (url[i].includes("twitch")) {
                     console.log(monitors[i].attr("src"));
-                    if(monitors[i].attr("src")!=`${url[i]}&enableExtensions=true&muted=false&player=popout`){
-                    monitors[i].attr("src",`${url[i]}&enableExtensions=true&muted=false&player=popout`)}
+                    if (monitors[i].attr("src") != `${url[i]}&enableExtensions=true&muted=false&player=popout`) {
+                        monitors[i].attr("src", `${url[i]}&enableExtensions=true&muted=false&player=popout`)
+                    }
                 } else if (url[i].includes("facebook")) {
-                    if(monitors[i].attr("src")!=`https://www.facebook.com/plugins/video.php?href=${url[i]}&width=933&height=536&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`){
-                    monitors[i].attr("src",`https://www.facebook.com/plugins/video.php?href=${url[i]}&width=933&height=536&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`)}
-                    
-                } 
+                    if (monitors[i].attr("src") !=
+                        `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=239&height=134&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
+                        ) {
+                        monitors[i].attr("src",
+                            `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=239&height=134&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
+                            )
+                    }
+                }
             }
         }
     }
-
-    /*測試用URL
-    
-    https://player.twitch.tv/?channel=kazuyainfinite
-    https://player.twitch.tv/?channel=wtf_winds123
-    https://player.twitch.tv/?channel=gearbaby1010
-    https://player.twitch.tv/?channel=m23066647
-    https://www.facebook.com/KurikanChannel/videos/976313266039009
-    https://www.facebook.com/TsulinSoCute/videos/558672731603356/
-    */
 </script>
 
 </html>
