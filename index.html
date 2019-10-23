@@ -41,6 +41,10 @@
     ::-webkit-scrollbar {
         width: 0px;
     }
+
+    iframe{
+        border-width: 0px;
+    }
 </style>
 
 <body>
@@ -114,10 +118,10 @@
                     }
                 } else if (url[i].includes("facebook")) {
                     if (monitors[i].attr("src") !=
-                        `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=239&height=134&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
+                        `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=16&height=9&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
                         ) {
                         monitors[i].attr("src",
-                            `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=239&height=134&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
+                            `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=16&height=9&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
                             )
                     }
                 }
