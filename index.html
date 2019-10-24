@@ -42,14 +42,14 @@
         width: 0px;
     }
 
-    iframe{
+    iframe {
         border-width: 0px;
     }
 
-    @media screen and (max-width:767px){
-        .monitor{
-            height:100% !important;
-            width:100% !important;
+    @media screen and (max-width:767px) {
+        .monitor {
+            height: 100% !important;
+            width: 100% !important;
         }
     }
 </style>
@@ -66,7 +66,7 @@
         </div>
         <div class="row no-gutters h-100 w-100">
             <div class="col-12 col-md-6 monitor" id="divMonitor0">
-                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100" 
+                <iframe src="" frameborder="1" allow="encrypted-media" allowfullscreen class="h-100 w-100"
                     id="monitor0"></iframe>
             </div>
             <div class="col-12 col-md-6 monitor" id="divMonitor1">
@@ -114,6 +114,12 @@
         }
     }
 
+    window.addEventListener("load", function () {
+        setTimeout(function () {
+            window.scrollTo(0, 1);
+        }, 0);
+    });
+
     function UpdateMonitor() {
         var url = $('#urlInput').val().split(",")
         for (let i = 0; i < monitors.length; i++) {
@@ -126,10 +132,10 @@
                 } else if (url[i].includes("facebook")) {
                     if (monitors[i].attr("src") !=
                         `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=16&height=9&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
-                        ) {
+                    ) {
                         monitors[i].attr("src",
                             `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=16&height=9&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
-                            )
+                        )
                     }
                 }
             }
