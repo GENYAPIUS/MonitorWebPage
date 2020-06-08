@@ -113,16 +113,16 @@
         }
     }
 
-        setTimeout(function () {
-            window.scrollTo(0, 1);
-        }, 100);
+    setTimeout(function () {
+        window.scrollTo(0, 1);
+    }, 100);
 
     function UpdateMonitor() {
         var url = $('#urlInput').val().split(",")
         for (let i = 0; i < monitors.length; i++) {
+            console.log(monitors[i].attr("src"));
             if (url[i] != undefined) {
                 if (url[i].includes("twitch")) {
-                    console.log(monitors[i].attr("src"));
                     if (monitors[i].attr("src") != `${url[i]}&enableExtensions=true&muted=false&player=popout`) {
                         monitors[i].attr("src", `${url[i]}&enableExtensions=true&muted=false&player=popout`)
                     }
@@ -134,12 +134,16 @@
                             `https://www.facebook.com/plugins/video.php?href=${url[i]}&width=16&height=9&show_text=false&allowfullscreen=true&autoplay=true&mute=0&appId`
                         )
                     }
-                } else if (url[i].includes("empty")){
-                    monitors[i].attr("src","")
+                } else if (url[i].includes("youtube")) {
+                    var youtubeId = url[i].replace("youtube ","")
+                    if(monitors[i].attr("src") != `https://www.youtube.com/embed/${youtubeId}?autoplay=1`){
+                        monitors[i].attr("src",`https://www.youtube.com/embed/${youtubeId}?autoplay=1`)
+                    }
+                } else if (url[i].includes("empty")) {
+                    monitors[i].attr("src", "")
                 }
             }
         }
     }
 </script>
-
 </html>
